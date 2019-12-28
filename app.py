@@ -138,13 +138,13 @@ def start():
         url1 = response['data']['url'] 
         # webbrowser.open(url1,
         # ')
-        models.Payment(**{
-            'currency' : payment_currency,
-            'amount' : amount_float,
-            'date_time' : datetime.datetime.now(),
-            'description' : description,
-            'identeficate' : f'{sign}_{datetime.datetime.now()}'
-        }).save()
+        # models.Payment(**{
+        #     'currency' : payment_currency,
+        #     'amount' : amount_float,
+        #     'date_time' : datetime.datetime.now(),
+        #     'description' : description,
+        #     'identeficate' : f'{sign}_{datetime.datetime.now()}'
+        # }).save()
         logging.info("Programm done with USD")
         return render_template('index.html', payment_currency=payment_currency, url1=url1)
     elif payment_currency == 'RUB':
@@ -175,13 +175,13 @@ def start():
         m_historytm = response['data']['data']['m_historytm']
         referer = response['data']['data']['referer']
 
-        models.Payment(**{
-            'currency' : payment_currency,
-            'amount' : amount_float,
-            'date_time' : datetime.datetime.now(),
-            'description' : description,
-            'identeficate' : f'{sign}_{datetime.datetime.now()}'
-        }).save()
+        # models.Payment(**{
+        #     'currency' : payment_currency,
+        #     'amount' : amount_float,
+        #     'date_time' : datetime.datetime.now(),
+        #     'description' : description,
+        #     'identeficate' : f'{sign}_{datetime.datetime.now()}'
+        # }).save()
         logging.info("Programm done with RUB")
         return render_template('index.html', 
                             payment_currency=payment_currency, 
