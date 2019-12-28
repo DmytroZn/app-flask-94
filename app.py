@@ -47,6 +47,7 @@ log = logging.getLogger("ex")
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/start')
 def start():
+    print('Start on Huroku 1')
     # currency = ['EUR', 'USD', 'RUB']
     currency_dict = {'EUR' : '978', 'USD' : '840', 'RUB': '643'}
     shop_id = '5'
@@ -56,6 +57,7 @@ def start():
     amount = ''
     payment_currency = ''
     description = ''
+    print('Start on Huroku 2')
     if request.method == 'POST':
         amount = request.form.get('amount')
         
@@ -95,6 +97,7 @@ def start():
         amount = f'{amount:.{2}f}'
         payment_currency1 = currency_dict[payment_currency]
     if payment_currency == 'EUR':
+        print('Start on EUR')
         logging.info("Programm choice EUR")
         url = 'https://pay.piastrix.com/ru/pay'
         shop_order_id = '101'
