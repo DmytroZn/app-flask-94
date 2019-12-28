@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+       
+        <title> My page </title>
+        <style>
+        body, .button, .button_1 {
+            background: rgb(136, 173, 164);
+            font-family: "Arial", Georgia, Serif;
+            font-weight: 800;
+        }
+        h1 {
+            color: rgb(255, 255, 255);
+            border-color: #009914;
+            /* border-style:; */
+            border-width: 10px;
+            
+        }
+        .a, h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .a {
+            color: rgb(0, 32, 16);
+        }
+
+        .b, .button, .button_1 {
+            border-radius: 5px;
+            border-style: solid;
+            border-color: #009914;
+            border-width: 1px;          
+        }
+
+        .button {
+            width: 100px; 
+            height: 25px;
+            background-color: rgb(238, 232, 176);
+            
+        }
+        .button_1 {
+            width: 50px; 
+            height: 25px;
+            background-color: rgb(238, 232, 176);
+        }
+
+    
+        .button:hover{
+            border-radius: 5px;
+            background-color: rgb(180, 223, 161)
+          }
+        
+        
+        
+        
+        </style>
+    </head>
+    <body>
+    
+        <h1>Test invoice</h1>
+        <div class="a">
+        {% if currency_dict %}
+        <form action="", method="post">
+            <p> Сумма оплаты
+                <input class="b" type="text" name="amount" size="5" required>
+                <p>
+                {% if error%}
+                {{error}}
+                {%endif%}</p>
+            </p>
+            <p>
+                Валюта оплаты
+                <select class="button_1" name="payment_currency" required>
+                    {% for i in currency_dict %}
+                    
+                        <option> {{i}} </option> 
+                    {% endfor %}        
+                </select>
+            </p>
+            <p>
+                Описание товара
+                <p><textarea class="b" rows="4" cols="20" name="description"></textarea></p>
+            </p>
+            <input class="button"  type="submit" value="Оплатить">
+        </form>
+        {%endif%}
+    
+
+        {%if payment_currency == 'EUR' %}
+        <form name="Pay" method="post" action="{{url}}" accept-charset="UTF-8">
+            <input type="hidden" name="amount" value="{{amount}}"/>
+            <input type="hidden" name="currency" value="{{currency}}"/>
+            <input type="hidden" name="shop_id" value="{{shop_id}}"/>
+            <input type="hidden" name="sign"
+                value="{{sign}}"/>
+            <input type="hidden" name="shop_order_id" value="{{shop_order_id}}"/>
+            <input class="button" type="submit" input type="hidden" value="Подтвердить"/>
+        </form>
+        {%endif%}
+
+
+        {% if payment_currency == 'USD' %}
+            <!-- <form>
+            <input type="button" value="pay" onclick="location.href='{{url1}}'"/>
+            </form> -->
+            <p>You went to another site</p>
+        {%endif%}
+            
+        {% if payment_currency == 'RUB' %}
+            <form method="method" action="{{url}}">
+            <input type="hidden" name="lang" value="{{lang}}" />
+            <input type="hidden" name="m_curorderid" value="{{m_curorderid}}"/>
+            <input type="hidden" name="m_historyid" value="{{m_historyid}}"/>
+            <input type="hidden" name="m_historytm" value="{{m_historytm}}"/>
+            <input type="hidden" name="referer" value="{{referer}}"/>
+            <input class="button" type="submit" />
+            </form>
+        {% endif %}
+    </div>
+    </body>
+</html>
