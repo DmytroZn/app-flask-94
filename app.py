@@ -104,13 +104,13 @@ def start():
         keys_sorted = ['amount', 'currency', 'shop_id', 'shop_order_id']
         sha = f'{amount}:{currency_dict[payment_currency]}:{shop_id}:{shop_order_id}{secretKey}'
         sign = hashlib.sha256(f'{sha}'.encode()).hexdigest()
-        # models.Payment(**{
-        #     'currency' : payment_currency,
-        #     'amount' : amount_float,
-        #     'date_time' : datetime.datetime.now(),
-        #     'description' : description,
-        #     'identeficate' : f'{sign}_{datetime.datetime.now()}'
-        # }).save()
+        models.Payment(**{
+            'currency' : payment_currency,
+            'amount' : amount_float,
+            'date_time' : datetime.datetime.now(),
+            'description' : description,
+            'identeficate' : f'{sign}_{datetime.datetime.now()}'
+        }).save()
         logging.info("Programm done with EUR")
         return render_template('index.html', 
                                 url=url, payment_currency=payment_currency,
