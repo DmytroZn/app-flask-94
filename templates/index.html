@@ -103,10 +103,10 @@
 
 
         {% if payment_currency == 'USD' %}
-            <!-- <form>
-            <input type="button" value="pay" onclick="location.href='{{url1}}'"/>
-            </form> -->
-            <p>You went to another site</p>
+            <form>
+            <input type="button" value="Подтвердить" onclick="location.href='{{url1}}'"/>
+            </form>
+            <!-- <p>You went to another site</p> -->
         {%endif%}
             
         {% if payment_currency == 'RUB' %}
@@ -116,7 +116,7 @@
             <input type="hidden" name="m_historyid" value="{{m_historyid}}"/>
             <input type="hidden" name="m_historytm" value="{{m_historytm}}"/>
             <input type="hidden" name="referer" value="{{referer}}"/>
-            <input class="button" type="submit" />
+            <input class="button" type="submit" value="Подтвердить" />
             </form>
         {% endif %}
     </div>

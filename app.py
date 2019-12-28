@@ -136,8 +136,8 @@ def start():
         answer = requests.post(url, data=json.dumps(data), headers=headers)
         response = answer.json()
         url1 = response['data']['url'] 
-        webbrowser.open(url1, new=1)
-        webbrowser.get('chrome')
+        # webbrowser.open(url1,
+        # ')
         # models.Payment(**{
         #     'currency' : payment_currency,
         #     'amount' : amount_float,
