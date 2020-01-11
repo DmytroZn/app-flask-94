@@ -32,16 +32,6 @@ def start():
         if amount:
             return tem_render.CheckAmount(amount, currency_dict, error, payment_currency).check()
 
-        
-        # try:
-        #     amount_float = float(amount) * 100
-        # except ValueError:
-        #     log.exception("Error!")
-        #     return render_template('index.html', currency_dict=currency_dict, payment_currency=payment_currency)
-
-        # amount = amount_float / 100
-        # amount = f'{amount:.{2}f}'
-        
     return render_template('index.html', currency_dict=currency_dict, payment_currency=payment_currency)
 
 
